@@ -20,7 +20,7 @@
   "main": "src/main/main.js",
   "scripts": {
     "start": "electron .",
-    "test": "node --test test/",
+    "test": "node --test",
     "smoke": "electron . --smoke",
     "e2e": "electron . --e2e",
     "pack": "electron-builder --dir",
