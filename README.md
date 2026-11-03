@@ -1,5 +1,7 @@
 # KitForge
 
+<img width="1322" height="861" alt="Kitforge1" src="https://github.com/user-attachments/assets/ee616a02-f80c-4f29-b486-0421107ebc00" />
+
 Editor de estilos para las carpetas del navegador de FL Studio. KitForge lee y
 escribe los archivos `.nfo` que FL Studio usa para pintar una carpeta (color,
 icono, tooltip, badge, altura y orden), con una vista previa del resultado.
