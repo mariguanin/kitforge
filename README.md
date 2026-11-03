@@ -155,7 +155,7 @@ yet, create it on GitHub and add it with `git remote add origin <URL>`.
 
 ## Icon preview
 
-KitForge does not include the icon PNGs from the original artifact. Most of the
+KitForge does not include the icon PNGs. Most of the
 `IconIndex` values in the FL Studio browser are glyphs from the **ILGlyphsEx**
 font that FL Studio installs in `Help\fonts`. On startup, KitForge locates that
 font in the FL Studio installation, loads it into the renderer and paints the
@@ -244,38 +244,6 @@ kitforge/
   custom protocol; the icon font is loaded as `data:`.
 - **Atomic export**: a `.part` file is written and renamed when finished; if it
   is canceled or fails, the `.part` is deleted.
-
-## Evidence from the original artifact
-
-Analysis performed with REA on
-`%LOCALAPPDATA%\Programs\KitSkin\resources\app.asar` (55,486,673 bytes,
-SHA-256 `22117846…b6471688`):
-
-- `ev_390f0c46…b999b790`: run over the whole app; 6,889 files, 3,944 JS files
-  parsed. The run exhausted the 300 s budget before finishing the renderer
-  bundle.
-- `ev_38a99519…bfe756713`: run targeted at `out/main/index.js` and
-  `out/preload/index.js`; it identified 1 `BrowserWindow`, 29 members exposed
-  in the preload, 26 IPC handlers and **no sender validation** in the original.
-
-From that, the following were documented: sibling `.nfo`, BGR colors, deletion
-when empty, `SortGroup` with descending order, asset detection by `Bitmap`
-prefix or `-` folder, zip export, license/trial and the Style panel flow. The
-clean copy **does not reuse** that code: it adds origin validation, CSP,
-sandbox, an allowlisted protocol and its own UI.
-
-Evidence → function map:
-
-| Observed behavior                            | Implementation in KitForge              |
-| -------------------------------------------- | --------------------------------------- |
-| `.nfo` sibling of the folder                 | `nfoPathForFolder` / `applySpecs`       |
-| `Color=$BBGGRR`                              | `cssToNfoColor` / `nfoToCssColor`       |
-| Delete `.nfo` when no style remains          | `isSpecEmpty` + `applySpecs`            |
-| `SortGroup` highest on top, ties by name     | `sortNodes` / `sortTree`                |
-| Asset detection by `Bitmap`                  | `findAssetsDir` / `ensureAssetsDir`     |
-| Numbered and deduplicated badges             | `saveBadge` / `nextFileName`            |
-| Cleanup of unused images                     | `cleanupUnusedAssets`                   |
-| Zip export                                   | `exportKit` with `archiver`             |
 
 ## Tests
 
