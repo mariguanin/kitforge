@@ -4,12 +4,7 @@ Editor de estilos para las carpetas del navegador de FL Studio. KitForge lee y
 escribe los archivos `.nfo` que FL Studio usa para pintar una carpeta (color,
 icono, tooltip, badge, altura y orden), con una vista previa del resultado.
 
-Es una **reimplementación limpia** de la app KitSkin: no contiene código,
-iconos ni recursos del artefacto original. El comportamiento se dedujo del
-análisis estático del `app.asar` original y el formato `.nfo` se implementó
-desde cero.
 
-> KitForge no está afiliado a Image-Line ni a KitSkin.
 
 ## Descargar
 
