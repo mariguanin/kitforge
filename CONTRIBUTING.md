@@ -49,9 +49,7 @@ npm run dist    # instalador NSIS + portable
 
 ## Limpieza de derechos
 
-KitForge es una reimplementación limpia de KitSkin. No se aceptan copias de
-código, iconos, imágenes ni otros recursos del artefacto original. La fuente
-`ILGlyphsEx` pertenece a Image-Line: se lee de la instalación local y no se
+La fuente `ILGlyphsEx` pertenece a Image-Line: se lee de la instalación local y no se
 redistribuye en el repositorio.
 
 ## Pull requests
