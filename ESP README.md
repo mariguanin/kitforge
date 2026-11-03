@@ -156,12 +156,11 @@ créalo en GitHub y añádelo con `git remote add origin <URL>`.
 
 ## Vista previa de iconos
 
-KitForge no incluye los PNG de iconos del artefacto original. La mayoría de los
-`IconIndex` del navegador de FL Studio son glifos de la fuente **ILGlyphsEx**
-que FL Studio instala en `Help\fonts`. Al arrancar, KitForge localiza esa fuente
-en la instalación de FL Studio, la carga en el renderer y pinta el glifo
-correspondiente a cada índice. Si FL Studio no está instalado, el panel muestra
-el número (`#772`) como respaldo.
+KitForge no incluye los PNG de iconos. La mayoría de los`IconIndex` del navegador
+de FL Studio son glifos de la fuente **ILGlyphsEx**que FL Studio instala en `Help\fonts`.
+Al arrancar, KitForge localiza esa fuenteen la instalación de FL Studio,
+la carga en el renderer y pinta el glifocorrespondiente a cada índice.
+Si FL Studio no está instalado, el panel muestrael número (`#772`) como respaldo.
 
 La tabla índice → punto de código está en `src/renderer/icons.js`. Se derivó de
 la fuente de FL Studio 2026; en versiones más antiguas puede faltar algún glifo.
@@ -246,26 +245,6 @@ kitforge/
 - **Exportación atómica**: se escribe un `.part` y se renombra al terminar; si
   se cancela o falla, el `.part` se borra.
 
-## Evidencia del artefacto original
-
-Análisis realizado con REA sobre
-`%LOCALAPPDATA%\Programs\KitSkin\resources\app.asar` (55.486.673 bytes,
-SHA-256 `22117846…b6471688`):
-
-- `ev_390f0c46…b999b790`: ejecución sobre la app completa; 6.889 archivos,
-  3.944 archivos JS parseados. La ejecución agotó el presupuesto de 300 s antes
-  de terminar el bundle del renderer.
-- `ev_38a99519…bfe756713`: ejecución dirigida a `out/main/index.js` y
-  `out/preload/index.js`; identificó 1 `BrowserWindow`, 29 miembros expuestos
-  en el preload, 26 handlers IPC y **ninguna validación de remitente** en el
-  original.
-
-De ahí se documentaron: `.nfo` hermano, colores BGR, borrado al quedar vacío,
-`SortGroup` con orden descendente, detección de assets por prefijo de `Bitmap`
-o carpeta `-`, exportación zip, licencia/trial y el flujo del panel Style. La
-copia limpia **no reutiliza** ese código: añade validación de origen, CSP,
-sandbox, protocolo con lista blanca y una UI propia.
-
 Mapa evidencia → función:
 
 | Comportamiento observado                     | Implementación en KitForge              |
@@ -342,8 +321,7 @@ npm run smoke
 npm run e2e
 ```
 
-No se aceptan copias de código, iconos ni recursos del artefacto original de
-KitSkin. La fuente `ILGlyphsEx` pertenece a Image-Line y no se redistribuye.
+La fuente `ILGlyphsEx` pertenece a Image-Line y no se redistribuye.
 
 ## Licencia
 
