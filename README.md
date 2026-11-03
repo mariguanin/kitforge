@@ -1,15 +1,12 @@
 # KitForge
 
+<img width="1322" height="861" alt="Kitforge1" src="https://github.com/user-attachments/assets/67ed186d-e5b4-437d-8597-54e2cb9ef90c" />
+
 Style editor for FL Studio browser folders. KitForge reads and writes the
 `.nfo` files that FL Studio uses to paint a folder (color, icon, tooltip,
 badge, height and order), with a preview of the result.
 
-It is a **clean-room reimplementation** of the KitSkin app: it contains no
-code, icons or assets from the original artifact. The behavior was inferred
-from static analysis of the original `app.asar`, and the `.nfo` format was
-implemented from scratch.
-
-> KitForge is not affiliated with Image-Line or KitSkin.
+> KitForge is not affiliated with Image-Line.****
 
 ## Download
 
@@ -312,27 +309,6 @@ simulates a drag to verify that the tree is not rebuilt during the gesture and
 that the new order remains pending apply. Then it creates a folder and renames
 it from the UI, checking that the dialog and the tree are updated.
 
-## Known differences
-
-- **Icons**: `IconIndex` is written by hand; there is a glyph preview, but no
-  visual selector for the full library and its PNGs are not included.
-- **Badge**: automatic downscaling to 320×160; there is no interactive
-  cropping.
-- **Cleanup**: explicit and with confirmation; it does not run automatically on
-  apply.
-- **Folder operations**: folders can be created and renamed, but not duplicated
-  or moved to another level. The `-` assets folder cannot be renamed so as not
-  to break existing `Bitmap`s.
-- **Watermark**: the original wrote a watermark line; KitForge does not write
-  it.
-- **Visual parity**: the original renderer bundle (1.49 MB minified) was never
-  analyzed by AST, so the interface is an original design inspired by the
-  observed flow, not a pixel-perfect copy.
-- **Platforms**: tested on Windows x64. The title bar has variants for
-  macOS/Linux, but they have not been validated.
-- **Signing**: the installer and the portable build are not signed; Windows may
-  warn with SmartScreen.
-
 ## Contributing
 
 The instructions for setting up the environment, the code style and the pull
@@ -345,8 +321,7 @@ npm run smoke
 npm run e2e
 ```
 
-Copies of code, icons or resources from the original KitSkin artifact are not
-accepted. The `ILGlyphsEx` font belongs to Image-Line and is not redistributed.
+The `ILGlyphsEx` font belongs to Image-Line and is not redistributed.
 
 ## License
 
