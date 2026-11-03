@@ -1,0 +1,79 @@
+{
+  "name": "kitforge",
+  "productName": "KitForge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Editor de estilos para carpetas del navegador de FL Studio (.nfo)",
+  "author": "KitForge contributors",
+  "license": "MIT",
+  "keywords": [
+    "fl-studio",
+    "nfo",
+    "browser",
+    "electron",
+    "kit",
+    "drum-kit"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/",
+    "smoke": "electron . --smoke",
+    "e2e": "electron . --e2e",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win nsis portable"
+  },
+  "build": {
+    "appId": "com.kitforge.studio",
+    "productName": "KitForge",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "README.md",
+      "LICENSE"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "artifactName": "${productName}-${version}-setup-${arch}.${ext}",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "KitForge"
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable-${arch}.${ext}"
+    }
+  },
+  "dependencies": {
+    "archiver": "^8.0.0"
+  },
+  "devDependencies": {
+    "electron": "^45.2.1",
+    "electron-builder": "^26.18.0"
+  }
+}

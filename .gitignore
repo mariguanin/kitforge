@@ -1,0 +1,26 @@
+# Dependencias
+node_modules/
+
+# Artefactos de compilación
+dist/
+out/
+coverage/
+*.tsbuildinfo
+
+# Exportaciones y archivos temporales de la app
+*.zip
+*.part
+.tmp-icons/
+*.log
+npm-debug.log*
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
