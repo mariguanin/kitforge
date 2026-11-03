@@ -59,7 +59,7 @@ redistribuye en el repositorio.
 3. Actualiza el README si cambia la interfaz, los comandos o el empaquetado.
 4. Describe qué problema resuelve y cómo lo probaste.
 
-Para errores, indica la versión de Windows, si usas el instalador o el portable,
+Para errores, indica la versión de windows, si usas el instalador o el portable,
 los pasos para reproducirlo y el mensaje de error.
 
 ## Licencia
