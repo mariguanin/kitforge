@@ -157,9 +157,9 @@ créalo en GitHub y añádelo con `git remote add origin <URL>`.
 ## Vista previa de iconos
 
 KitForge no incluye los PNG de iconos. La mayoría de los`IconIndex` del navegador
-de FL Studio son glifos de la fuente **ILGlyphsEx**que FL Studio instala en `Help\fonts`.
-Al arrancar, KitForge localiza esa fuenteen la instalación de FL Studio,
-la carga en el renderer y pinta el glifocorrespondiente a cada índice.
+de FL Studio son glifos de la fuente **ILGlyphsEx** que FL Studio instala en `Help\fonts`.
+Al arrancar, KitForge localiza esa fuente en la instalación de FL Studio,
+la carga en el renderer y pinta el glifo correspondiente a cada índice.
 Si FL Studio no está instalado, el panel muestrael número (`#772`) como respaldo.
 
 La tabla índice → punto de código está en `src/renderer/icons.js`. Se derivó de
